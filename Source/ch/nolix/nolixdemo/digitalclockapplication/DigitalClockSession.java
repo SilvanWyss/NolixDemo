@@ -1,10 +1,10 @@
 package ch.nolix.nolixdemo.digitalclockapplication;
 
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
-import ch.nolix.element.gui.widget.Label;
-import ch.nolix.element.time.base.Time;
 import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
 import ch.nolix.system.application.main.VoidApplicationContext;
+import ch.nolix.system.gui.widget.Label;
+import ch.nolix.system.time.base.Time;
 
 final class DigitalClockSession extends BackendGUIClientSession<VoidApplicationContext> {
 	
@@ -17,7 +17,7 @@ final class DigitalClockSession extends BackendGUIClientSession<VoidApplicationC
 		
 		getRefGUI()
 		.setConfiguration(LookCreator.INSTANCE.createLook())
-		.addLayerOnTop(timeLabel);
+		.pushLayer(timeLabel);
 		
 		Sequencer
 		.asLongAs(this::isOpen)
