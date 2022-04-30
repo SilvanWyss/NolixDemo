@@ -13,7 +13,7 @@ final class DigitalClockSession extends BackendGUIClientSession<VoidApplicationC
 	private final Label timeLabel = new Label().setId(WidgetIdCatalogue.TIME_LABEL_ID);
 	
 	@Override
-	protected void initializeBaseBackGUIClientSession() {
+	protected void initialize() {
 		
 		getRefGUI()
 		.setConfiguration(LookCreator.INSTANCE.createLook())
