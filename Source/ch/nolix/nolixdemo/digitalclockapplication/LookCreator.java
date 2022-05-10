@@ -2,7 +2,6 @@ package ch.nolix.nolixdemo.digitalclockapplication;
 
 import ch.nolix.system.configuration.Configuration;
 import ch.nolix.system.configuration.DeepConfiguration;
-import ch.nolix.system.gui.base.Layer;
 
 final class LookCreator {
 	
@@ -15,16 +14,19 @@ final class LookCreator {
 		new Configuration()
 		.addAttachingAttribute("BackgroundColor(SteelBlue)")
 		.addConfiguration(
-			createLayerLook(),
+			createTimeLayerLook(),
 			createTimeLabelLook()
 		);
 	}
 	
-	private DeepConfiguration createLayerLook() {
+	private DeepConfiguration createTimeLayerLook() {
 		return
 		new DeepConfiguration()
-		.setSelectorType(Layer.class)
-		.addAttachingAttribute("ContentPosition(Center)");
+		.setSelectorId(WidgetIdCatalogue.TIME_LAYER_ID)
+		.addAttachingAttribute(
+			"OpacityPercentage(0.9)",
+			"ContentPosition(Bottom)"
+		);
 	}
 	
 	private DeepConfiguration createTimeLabelLook() {
@@ -32,6 +34,9 @@ final class LookCreator {
 		new DeepConfiguration()
 		.setSelectorId(WidgetIdCatalogue.TIME_LABEL_ID)
 		.addAttachingAttribute(
+			"MinWidth(100%)",
+			"BaseBackground(Color(Black))",
+			"BasePadding(50)",
 			"BaseTextSize(200)",
 			"BaseTextColor(White)"
 		);
