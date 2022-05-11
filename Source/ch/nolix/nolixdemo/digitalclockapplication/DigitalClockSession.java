@@ -35,23 +35,24 @@ final class DigitalClockSession extends BackendGUIClientSession<VoidApplicationC
 		.runInBackground(this::updateTime);
 	}
 	
-	private String getCurrentTimeText() {
-		
-		final var currentTime = Time.fromCurrentTime();
-		
-		return
-		String.format(
-			"%02d:%02d:%02d",
-			currentTime.getHourOfDay(),
-			currentTime.getMinuteOfHour(),
-			currentTime.getSecondOfMinute()
-		);
-	}
-	
 	private void updateTime() {
 		
 		timeLabel.setText(getCurrentTimeText());
 		
 		updateCounterpart();
+	}
+	
+	private String getCurrentTimeText() {
+		return getTimeAsText(Time.fromCurrentTime());
+	}
+		
+	private String getTimeAsText(final Time time) {
+		return
+		String.format(
+			"%02d:%02d:%02d",
+			time.getHourOfDay(),
+			time.getMinuteOfHour(),
+			time.getSecondOfMinute()
+		);
 	}
 }
