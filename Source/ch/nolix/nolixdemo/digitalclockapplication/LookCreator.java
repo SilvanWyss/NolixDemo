@@ -24,7 +24,7 @@ final class LookCreator {
 		new DeepConfiguration()
 		.setSelectorId(WidgetIdCatalogue.TIME_LAYER_ID)
 		.addAttachingAttribute(
-			"OpacityPercentage(0.9)",
+			"Opacity(90%)",
 			"ContentPosition(Bottom)"
 		);
 	}
