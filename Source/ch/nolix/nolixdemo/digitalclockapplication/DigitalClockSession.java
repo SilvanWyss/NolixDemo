@@ -3,17 +3,17 @@ package ch.nolix.nolixdemo.digitalclockapplication;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
 import ch.nolix.system.application.main.VoidApplicationContext;
-import ch.nolix.system.gui.base.Layer;
-import ch.nolix.system.gui.image.MutableImage;
+import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.widget.Label;
+import ch.nolix.system.gui.widgetgui.Layer;
 import ch.nolix.system.time.base.Time;
 
 final class DigitalClockSession extends BackendGUIClientSession<VoidApplicationContext> {
 	
 	private static final int TIME_UPDATE_INTERVAL_IN_MILLISECONDS = 200;
 	
-	private static final MutableImage BACKGROUND_IMAGE =
-	MutableImage.fromResource("ch/nolix/nolixdemo/digitalclockapplication/resource/Sonnenberg.jpg");
+	private static final Image BACKGROUND_IMAGE =
+	Image.fromResource("ch/nolix/nolixdemo/digitalclockapplication/resource/Sonnenberg.jpg");
 	
 	private final Label timeLabel = new Label().setId(WidgetIdCatalogue.TIME_LABEL_ID);
 	
