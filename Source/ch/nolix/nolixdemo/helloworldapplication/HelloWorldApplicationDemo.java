@@ -17,7 +17,7 @@ public final class HelloWorldApplicationDemo {
 		server.addDefaultApplication(new HelloWorldApplication());
 	}
 	
-	private static final class HelloWorldApplication
+	public static final class HelloWorldApplication
 	extends Application<BackendGUIClient<VoidApplicationContext>, VoidApplicationContext> {
 		
 		public static final String NAME = "Hello World Demo";
