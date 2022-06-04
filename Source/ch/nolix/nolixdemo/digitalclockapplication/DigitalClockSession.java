@@ -1,6 +1,6 @@
 package ch.nolix.nolixdemo.digitalclockapplication;
 
-import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.gui.image.Image;
@@ -29,7 +29,7 @@ final class DigitalClockSession extends BackendGUIClientSession<VoidApplicationC
 		)
 		.setBackgroundImage(BACKGROUND_IMAGE);
 		
-		Sequencer
+		GlobalSequencer
 		.asLongAs(this::isOpen)
 		.afterAllMilliseconds(TIME_UPDATE_INTERVAL_IN_MILLISECONDS)
 		.runInBackground(this::updateTime);
