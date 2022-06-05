@@ -2,6 +2,7 @@ package ch.nolix.nolixdemo.serverdashboardapplication;
 
 import ch.nolix.business.serverdashboard.ServerDashboard;
 import ch.nolix.nolixdemo.digitalclockapplication.DigitalClockApplication;
+import ch.nolix.nolixdemo.fractalgeneratorapplication.FractalGenerator;
 import ch.nolix.nolixdemo.helloworldapplication.HelloWorldApplicationDemo;
 import ch.nolix.system.application.main.Server;
 
@@ -15,7 +16,8 @@ public final class Launcher {
 		
 		server.addApplication(
 			new HelloWorldApplicationDemo.HelloWorldApplication(),
-			new DigitalClockApplication()
+			new DigitalClockApplication(),
+			new FractalGenerator()
 		);
 	}
 	
