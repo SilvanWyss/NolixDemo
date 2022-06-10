@@ -2,6 +2,7 @@ package ch.nolix.nolixdemo.digitalclockapplication;
 
 import ch.nolix.system.configuration.Configuration;
 import ch.nolix.system.configuration.DeepConfiguration;
+import ch.nolix.system.gui.containerwidget.ContainerRole;
 
 final class LookCreator {
 	
@@ -15,7 +16,9 @@ final class LookCreator {
 		.addAttachingAttribute("BackgroundColor(SteelBlue)")
 		.addConfiguration(
 			createTimeLayerLook(),
-			createTimeLabelLook()
+			createMainContainerLook(),
+			createTimeLabelLook(),
+			createDateLabelLook()
 		);
 	}
 	
@@ -29,10 +32,10 @@ final class LookCreator {
 		);
 	}
 	
-	private DeepConfiguration createTimeLabelLook() {
+	private DeepConfiguration createMainContainerLook() {
 		return
 		new DeepConfiguration()
-		.setSelectorId(WidgetIdCatalogue.TIME_LABEL_ID)
+		.addSelectorRole(ContainerRole.MAIN_CONTENT_CONTAINER)
 		.addAttachingAttribute(
 			"MinWidth(100%)",
 			"BaseBackground(Color(Black))",
@@ -40,5 +43,19 @@ final class LookCreator {
 			"BaseTextSize(200)",
 			"BaseTextColor(White)"
 		);
+	}
+	
+	private DeepConfiguration createTimeLabelLook() {
+		return
+		new DeepConfiguration()
+		.setSelectorId(WidgetIdCatalogue.TIME_LABEL_ID)
+		.addAttachingAttribute("BaseTextSize(100)");
+	}
+	
+	private DeepConfiguration createDateLabelLook() {
+		return
+		new DeepConfiguration()
+		.setSelectorId(WidgetIdCatalogue.DATE_LABEL_ID)
+		.addAttachingAttribute("BaseTextSize(50)");
 	}
 }

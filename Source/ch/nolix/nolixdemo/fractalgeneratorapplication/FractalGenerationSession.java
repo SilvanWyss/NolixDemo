@@ -44,7 +44,7 @@ final class FractalGenerationSession extends BackendGUIClientSession<VoidApplica
 		return
 		new VerticalStack()
 		.setRole(ContainerRole.OVERALL_CONTAINTER)
-		.add(createTitleWidget(), createControlWidget(), fractalImageWidget);
+		.addWidget(createTitleWidget(), createControlWidget(), fractalImageWidget);
 	}
 		
 	private Widget<?, ?> createTitleWidget() {
@@ -52,7 +52,7 @@ final class FractalGenerationSession extends BackendGUIClientSession<VoidApplica
 	}
 	
 	private Widget<?, ?> createControlWidget() {
-		return new VerticalStack().add(createConfigurationWidet(), generateFractalImageButton);
+		return new VerticalStack().addWidget(createConfigurationWidet(), generateFractalImageButton);
 	}
 	
 	private Widget<?, ?> createConfigurationWidet() {
