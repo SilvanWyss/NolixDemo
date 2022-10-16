@@ -13,7 +13,6 @@ final class LookCreator {
 	public Style createLook() {
 		return
 		new Style()
-		.addAttachingAttribute("BackgroundColor(SteelBlue)")
 		.addConfiguration(
 			createTimeLayerLook(),
 			createMainContainerLook(),
@@ -37,7 +36,7 @@ final class LookCreator {
 		new DeepStyle()
 		.addSelectorRole(ContainerRole.MAIN_CONTENT_CONTAINER)
 		.addAttachingAttribute(
-			"MinWidth(100%)",
+			//TODO: "MinWidth(100%)"
 			"BaseBackground(Color(Black))",
 			"BasePadding(50)",
 			"BaseTextSize(200)",

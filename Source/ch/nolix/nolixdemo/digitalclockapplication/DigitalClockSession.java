@@ -2,25 +2,25 @@ package ch.nolix.nolixdemo.digitalclockapplication;
 
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
 import ch.nolix.system.application.main.VoidApplicationContext;
-import ch.nolix.system.gui.containerwidget.VerticalStack;
+import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.gui.image.Image;
-import ch.nolix.system.gui.widget.Label;
-import ch.nolix.system.gui.widgetgui.Layer;
 import ch.nolix.system.time.moment.Time;
+import ch.nolix.system.webgui.control.Text;
+import ch.nolix.system.webgui.linearcontainer.VerticalStack;
+import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
 
-final class DigitalClockSession extends BackendGUIClientSession<VoidApplicationContext> {
+final class DigitalClockSession extends BackendWebClientSession<VoidApplicationContext> {
 	
 	private static final int TIME_UPDATE_INTERVAL_IN_MILLISECONDS = 200;
 	
 	private static final Image BACKGROUND_IMAGE =
 	Image.fromResource("ch/nolix/nolixdemo/digitalclockapplication/resource/Sonnenberg.jpg");
 	
-	private final Label timeLabel = new Label().setId(WidgetIdCatalogue.TIME_LABEL_ID);
+	private final Text timeLabel = new Text().setId(WidgetIdCatalogue.TIME_LABEL_ID);
 	
-	private final Label dateLabel = new Label().setId(WidgetIdCatalogue.DATE_LABEL_ID);
+	private final Text dateLabel = new Text().setId(WidgetIdCatalogue.DATE_LABEL_ID);
 	
 	@Override
 	protected void initialize() {
@@ -30,10 +30,10 @@ final class DigitalClockSession extends BackendGUIClientSession<VoidApplicationC
 		.pushLayer(
 			new Layer()
 			.setId(WidgetIdCatalogue.TIME_LAYER_ID)
-			.setRootWidget(
+			.setRootControl(
 				new VerticalStack()
 				.setRole(ContainerRole.MAIN_CONTENT_CONTAINER)
-				.addWidget(
+				.addControl(
 					timeLabel,
 					dateLabel
 				)
