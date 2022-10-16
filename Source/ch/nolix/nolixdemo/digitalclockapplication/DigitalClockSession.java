@@ -4,12 +4,12 @@ import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
 import ch.nolix.system.application.main.VoidApplicationContext;
-import ch.nolix.system.gui.containerwidget.ContainerRole;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widgetgui.Layer;
-import ch.nolix.system.time.base.Time;
+import ch.nolix.system.time.moment.Time;
+import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
 
 final class DigitalClockSession extends BackendGUIClientSession<VoidApplicationContext> {
 	
@@ -26,7 +26,7 @@ final class DigitalClockSession extends BackendGUIClientSession<VoidApplicationC
 	protected void initialize() {
 		
 		getRefGUI()
-		.setConfiguration(LookCreator.INSTANCE.createLook())
+		.setStyle(LookCreator.INSTANCE.createLook())
 		.pushLayer(
 			new Layer()
 			.setId(WidgetIdCatalogue.TIME_LAYER_ID)

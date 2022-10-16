@@ -6,7 +6,7 @@ import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.gui.widget.Label;
-import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 public final class HelloWorldApplicationDemo {
 	
@@ -35,7 +35,7 @@ public final class HelloWorldApplicationDemo {
 			.pushLayerWithRootWidget(
 				new Label()
 				.setText("Hello World")
-				.onLook(l -> l.setTextSizeForState(WidgetLookState.BASE, 50))
+				.onStyle(l -> l.setTextSizeForState(ControlState.BASE, 50))
 			);
 		}
 	}

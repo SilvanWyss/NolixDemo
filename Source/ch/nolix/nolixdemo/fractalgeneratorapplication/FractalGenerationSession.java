@@ -2,7 +2,6 @@ package ch.nolix.nolixdemo.fractalgeneratorapplication;
 
 import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
 import ch.nolix.system.application.main.VoidApplicationContext;
-import ch.nolix.system.gui.containerwidget.ContainerRole;
 import ch.nolix.system.gui.containerwidget.Grid;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.system.gui.dialog.WaitDialogCreator;
@@ -12,9 +11,10 @@ import ch.nolix.system.gui.widget.ImageWidget;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.LabelRole;
 import ch.nolix.system.gui.widget.Widget;
+import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
-import ch.nolix.template.guilook.AnthrazitGUILookCreator;
+import ch.nolix.template.guistyle.AnthrazitGUIStyleCreator;
 
 final class FractalGenerationSession extends BackendGUIClientSession<VoidApplicationContext> {
 	
@@ -36,7 +36,7 @@ final class FractalGenerationSession extends BackendGUIClientSession<VoidApplica
 	@Override
 	protected void initialize() {
 		getRefGUI()
-		.setConfiguration(AnthrazitGUILookCreator.INSTANCE.createGUILook())
+		.setStyle(AnthrazitGUIStyleCreator.INSTANCE.createGUIStyle())
 		.pushLayerWithRootWidget(createMainWidget());
 	}
 	
