@@ -1,11 +1,11 @@
 package ch.nolix.nolixdemo.fractalgeneratorapplication;
 
-import ch.nolix.system.application.guiapplication.BackendGUIClient;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.VoidApplicationContext;
+import ch.nolix.system.application.webapplication.BackendWebClient;
 
 public final class FractalGenerator
-extends Application<BackendGUIClient<VoidApplicationContext>, VoidApplicationContext> {
+extends Application<BackendWebClient<Object>, Object> {
 	
 	public static final String NAME = "Fractal Generator";
 	

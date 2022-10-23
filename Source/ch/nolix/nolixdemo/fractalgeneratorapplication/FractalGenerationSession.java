@@ -1,22 +1,19 @@
 package ch.nolix.nolixdemo.fractalgeneratorapplication;
 
-import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
-import ch.nolix.system.application.main.VoidApplicationContext;
-import ch.nolix.system.gui.containerwidget.Grid;
-import ch.nolix.system.gui.containerwidget.VerticalStack;
-import ch.nolix.system.gui.dialog.WaitDialogCreator;
-import ch.nolix.system.gui.widget.Button;
-import ch.nolix.system.gui.widget.DropdownMenu;
-import ch.nolix.system.gui.widget.ImageWidget;
-import ch.nolix.system.gui.widget.Label;
-import ch.nolix.system.gui.widget.LabelRole;
-import ch.nolix.system.gui.widget.Widget;
+import ch.nolix.system.application.webapplication.BackendWebClientSession;
+import ch.nolix.system.webgui.container.GridContainer;
+import ch.nolix.system.webgui.control.Button;
+import ch.nolix.system.webgui.control.ImageControl;
+import ch.nolix.system.webgui.control.Text;
+import ch.nolix.system.webgui.dialog.WaitDialogFactory;
+import ch.nolix.system.webgui.itemmenu.DropdownMenu;
+import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
-import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
-import ch.nolix.template.guistyle.AnthrazitGUIStyleCreator;
+import ch.nolix.systemapi.webguiapi.controlapi.TextRole;
+import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
-final class FractalGenerationSession extends BackendGUIClientSession<VoidApplicationContext> {
+final class FractalGenerationSession extends BackendWebClientSession<Object> {
 	
 	private static final IImage DEFAULT_FRACTAL_IMAGE =
 	new FractalBuilder()
@@ -31,75 +28,73 @@ final class FractalGenerationSession extends BackendGUIClientSession<VoidApplica
 	
 	private final FractalBuilder fractalBuilder = new FractalBuilder();
 	
-	private final ImageWidget fractalImageWidget = new ImageWidget().setImage(DEFAULT_FRACTAL_IMAGE);
+	private final ImageControl fractalImageWidget = new ImageControl().setImage(DEFAULT_FRACTAL_IMAGE);
 		
 	@Override
 	protected void initialize() {
-		getRefGUI()
-		.setStyle(AnthrazitGUIStyleCreator.INSTANCE.createGUIStyle())
-		.pushLayerWithRootWidget(createMainWidget());
+		getRefGUI().pushLayerWithRootControl(createMainWidget());
 	}
 	
-	private IWidget<?, ?> createMainWidget() {
+	private IControl<?, ?> createMainWidget() {
 		return
 		new VerticalStack()
 		.setRole(ContainerRole.OVERALL_CONTAINTER)
-		.addWidget(createTitleWidget(), createControlWidget(), fractalImageWidget);
+		.addControl(createTitleWidget(), createControlWidget(), fractalImageWidget);
 	}
 		
-	private Widget<?, ?> createTitleWidget() {
-		return new Label().setRole(LabelRole.TITLE).setText(getApplicationName());
+	private IControl<?, ?> createTitleWidget() {
+		return new Text().setRole(TextRole.TITLE).setText(getApplicationName());
 	}
 	
-	private Widget<?, ?> createControlWidget() {
-		return new VerticalStack().addWidget(createConfigurationWidet(), generateFractalImageButton);
+	private IControl<?, ?> createControlWidget() {
+		return new VerticalStack().addControl(createConfigurationWidet(), generateFractalImageButton);
 	}
 	
-	private Widget<?, ?> createConfigurationWidet() {
+	private IControl<?, ?> createConfigurationWidet() {
 		return
-		new Grid()
-		.setWidget(1, 1, "Function")
-		.setWidget(
+		new GridContainer()
+		.insertTextAtRowAndColumn(1, 1, "Function")
+		.insertControlAtRowAndColumn(
 			1,
 			2,
 			new DropdownMenu()
-			.addItem("p->p^2+z", fractalBuilder::setMandelbrotFunction)
-			.addItem("p->p^2-0.8+0.15i", fractalBuilder::setFunctionSumOfPredecessorPower2AndFixZ)
-			.addItem("p->p^4+z", fractalBuilder::setFunctionSumOfPredecessarPower4AndZ)
+			.addItemWithTextAndSelectAction("p->p^2+z", fractalBuilder::setMandelbrotFunction)
+			.addItemWithTextAndSelectAction("p->p^2-0.8+0.15i", fractalBuilder::setFunctionSumOfPredecessorPower2AndFixZ)
+			.addItemWithTextAndSelectAction("p->p^4+z", fractalBuilder::setFunctionSumOfPredecessarPower4AndZ)
 			.selectFirstItem()
 		)
-		.setWidget(1, 3, "Maximal iteration count")
-		.setWidget(
+		.insertTextAtRowAndColumn(1, 3, "Maximal iteration count")
+		.insertControlAtRowAndColumn(
 			1,
 			4,
 			createMaxIterationCountDropdownMenu()
 		)
-		.setWidget(2, 1, "Size")
-		.setWidget(
+		.insertTextAtRowAndColumn(2, 1, "Size")
+		.insertControlAtRowAndColumn(
 			2,
 			2,
 			new DropdownMenu()
-			.addItem("Small", fractalBuilder::setSmallSize)
-			.addItem("Medium", fractalBuilder::setMediumSize)
-			.addItem("Large", fractalBuilder::setLargeSize)
-			.addItem("Very large", fractalBuilder::setVeryLargeSize)
+			.addItemWithTextAndSelectAction("Small", fractalBuilder::setSmallSize)
+			.addItemWithTextAndSelectAction("Medium", fractalBuilder::setMediumSize)
+			.addItemWithTextAndSelectAction("Large", fractalBuilder::setLargeSize)
+			.addItemWithTextAndSelectAction("Very large", fractalBuilder::setVeryLargeSize)
 			.selectFirstItem()
 		)
-		.setWidget(2, 3, "Coloring")
-		.setWidget(
+		.insertTextAtRowAndColumn(2, 3, "Coloring")
+		.insertControlAtRowAndColumn(
 			2,
 			4,
 			new DropdownMenu()
-			.addItem("Unique beige", fractalBuilder::setUniqueBeigeColoring)
-			.addItem("Blue", fractalBuilder::setBlueColoring)
-			.addItem("Green", fractalBuilder::setGreenColoring)
-			.addItem("Red", fractalBuilder::setRedColoring)
-			.addItem("Yellow", fractalBuilder::setYellowColoring)
+			.addItemWithTextAndSelectAction("Unique beige", fractalBuilder::setUniqueBeigeColoring)
+			.addItemWithTextAndSelectAction("Blue", fractalBuilder::setBlueColoring)
+			.addItemWithTextAndSelectAction("Green", fractalBuilder::setGreenColoring)
+			.addItemWithTextAndSelectAction("Red", fractalBuilder::setRedColoring)
+			.addItemWithTextAndSelectAction("Yellow", fractalBuilder::setYellowColoring)
 			.selectFirstItem()
 		);
 	}
 	
-	private Widget<?, ?> createMaxIterationCountDropdownMenu() {
+	private IControl<?, ?> createMaxIterationCountDropdownMenu() {
 		
 		final var maxIterationCountDropdownMenu = new DropdownMenu();
 		
@@ -107,17 +102,20 @@ final class FractalGenerationSession extends BackendGUIClientSession<VoidApplica
 			
 			final var j = i;
 			
-			maxIterationCountDropdownMenu.addItem(String.valueOf(j), () -> fractalBuilder.setMaxIterationCount(j));
+			maxIterationCountDropdownMenu.addItemWithTextAndSelectAction(
+				String.valueOf(j),
+				() -> fractalBuilder.setMaxIterationCount(j)
+			);
 		}
 		
-		maxIterationCountDropdownMenu.selectItem("30");
+		maxIterationCountDropdownMenu.selectItemByText("30");
 		
 		return maxIterationCountDropdownMenu;
 	}
 	
 	private void startRegenerateFractalImage() {
 		getRefGUI().pushLayer(
-			WaitDialogCreator.INSTANCE.createWaitDialogForJobAndTerminalAction(
+			WaitDialogFactory.INSTANCE.createWaitDialogForJobAndTerminalAction(
 				this::regenerateFractalImage,
 				this::updateCounterpart
 			)
