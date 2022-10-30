@@ -12,7 +12,7 @@ public final class HelloWorldApplicationDemo {
 	
 	public static void main(String[] args) {
 		
-		final var server = Server.forDefaultPort(true);
+		final var server = Server.forDefaultPort();
 		
 		server.addDefaultApplication(new HelloWorldApplication());
 	}

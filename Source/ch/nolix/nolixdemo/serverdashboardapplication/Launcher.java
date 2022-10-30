@@ -10,7 +10,7 @@ public final class Launcher {
 	
 	public static void main(String[] args) {
 		
-		final var server = Server.forDefaultPort(true);
+		final var server = Server.forDefaultPort();
 		
 		server.addDefaultApplication(ServerDashboard.forServer(server));
 		

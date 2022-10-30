@@ -36,7 +36,7 @@ final class LookCreator {
 		new DeepStyle()
 		.addSelectorRole(ContainerRole.MAIN_CONTENT_CONTAINER)
 		.addAttachingAttribute(
-			//TODO: "MinWidth(100%)"
+			"BaseWidth(100%)",
 			"BaseBackground(Color(Black))",
 			"BasePadding(50)",
 			"BaseTextSize(200)",
