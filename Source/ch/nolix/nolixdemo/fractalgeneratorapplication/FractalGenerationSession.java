@@ -28,25 +28,25 @@ final class FractalGenerationSession extends BackendWebClientSession<Object> {
 	
 	private final FractalBuilder fractalBuilder = new FractalBuilder();
 	
-	private final ImageControl fractalImageWidget = new ImageControl().setImage(DEFAULT_FRACTAL_IMAGE);
+	private final ImageControl fractalImageControl = new ImageControl().setImage(DEFAULT_FRACTAL_IMAGE);
 		
 	@Override
 	protected void initialize() {
-		getRefGUI().pushLayerWithRootControl(createMainWidget());
+		getRefGUI().pushLayerWithRootControl(createMainControl());
 	}
 	
-	private IControl<?, ?> createMainWidget() {
+	private IControl<?, ?> createMainControl() {
 		return
 		new VerticalStack()
 		.setRole(ContainerRole.OVERALL_CONTAINTER)
-		.addControl(createTitleWidget(), createControlWidget(), fractalImageWidget);
+		.addControl(createTitleControl(), createConfigurationControl(), fractalImageControl);
 	}
 		
-	private IControl<?, ?> createTitleWidget() {
+	private IControl<?, ?> createTitleControl() {
 		return new Text().setRole(TextRole.TITLE).setText(getApplicationName());
 	}
 	
-	private IControl<?, ?> createControlWidget() {
+	private IControl<?, ?> createConfigurationControl() {
 		return new VerticalStack().addControl(createConfigurationWidet(), generateFractalImageButton);
 	}
 	
@@ -123,6 +123,6 @@ final class FractalGenerationSession extends BackendWebClientSession<Object> {
 	}
 	
 	private void regenerateFractalImage() {
-		fractalImageWidget.setImage(fractalBuilder.createFractalImage());
+		fractalImageControl.setImage(fractalBuilder.createFractalImage());
 	}
 }
