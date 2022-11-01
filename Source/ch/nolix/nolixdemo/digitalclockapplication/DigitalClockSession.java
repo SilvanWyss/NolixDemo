@@ -18,9 +18,9 @@ final class DigitalClockSession extends BackendWebClientSession<VoidApplicationC
 	private static final Image BACKGROUND_IMAGE =
 	Image.fromResource("ch/nolix/nolixdemo/digitalclockapplication/resource/Sonnenberg.jpg");
 	
-	private final Text timeLabel = new Text().setId(WidgetIdCatalogue.TIME_LABEL_ID);
+	private final Text timeLabel = new Text().setId(ControlIdCatalogue.TIME_LABEL_ID);
 	
-	private final Text dateLabel = new Text().setId(WidgetIdCatalogue.DATE_LABEL_ID);
+	private final Text dateLabel = new Text().setId(ControlIdCatalogue.DATE_LABEL_ID);
 	
 	@Override
 	protected void initialize() {
@@ -29,7 +29,7 @@ final class DigitalClockSession extends BackendWebClientSession<VoidApplicationC
 		.setStyle(LookCreator.INSTANCE.createLook())
 		.pushLayer(
 			new Layer()
-			.setId(WidgetIdCatalogue.TIME_LAYER_ID)
+			.setId(ControlIdCatalogue.TIME_LAYER_ID)
 			.setRootControl(
 				new VerticalStack()
 				.setRole(ContainerRole.MAIN_CONTENT_CONTAINER)

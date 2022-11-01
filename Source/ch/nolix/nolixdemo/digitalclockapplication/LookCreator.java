@@ -24,7 +24,7 @@ final class LookCreator {
 	private DeepStyle createTimeLayerLook() {
 		return
 		new DeepStyle()
-		.setSelectorId(WidgetIdCatalogue.TIME_LAYER_ID)
+		.setSelectorId(ControlIdCatalogue.TIME_LAYER_ID)
 		.addAttachingAttribute(
 			"Opacity(90%)",
 			"ContentPosition(BOTTOM)"
@@ -47,14 +47,14 @@ final class LookCreator {
 	private DeepStyle createTimeLabelLook() {
 		return
 		new DeepStyle()
-		.setSelectorId(WidgetIdCatalogue.TIME_LABEL_ID)
+		.setSelectorId(ControlIdCatalogue.TIME_LABEL_ID)
 		.addAttachingAttribute("BaseTextSize(100)");
 	}
 	
 	private DeepStyle createDateLabelLook() {
 		return
 		new DeepStyle()
-		.setSelectorId(WidgetIdCatalogue.DATE_LABEL_ID)
+		.setSelectorId(ControlIdCatalogue.DATE_LABEL_ID)
 		.addAttachingAttribute("BaseTextSize(50)");
 	}
 }
