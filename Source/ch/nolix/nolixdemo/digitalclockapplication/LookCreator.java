@@ -2,7 +2,7 @@ package ch.nolix.nolixdemo.digitalclockapplication;
 
 import ch.nolix.system.element.style.DeepStyle;
 import ch.nolix.system.element.style.Style;
-import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
+import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
 
 final class LookCreator {
 	

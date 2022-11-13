@@ -2,8 +2,8 @@ package ch.nolix.nolixdemo.fractalgeneratorapplication;
 
 import ch.nolix.business.bigdecimalmath.ComplexNumber;
 import ch.nolix.business.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
-import ch.nolix.system.gui.color.Color;
-import ch.nolix.systemapi.guiapi.imageapi.IImage;
+import ch.nolix.system.graphic.color.Color;
+import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.template.bigdecimalmath.GlobalSequenceCreator;
 
 public final class FractalBuilder {

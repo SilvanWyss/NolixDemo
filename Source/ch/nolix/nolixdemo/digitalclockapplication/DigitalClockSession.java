@@ -4,18 +4,19 @@ import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
-import ch.nolix.system.gui.image.Image;
+import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.system.webgui.control.Text;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
-import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
+import ch.nolix.systemapi.graphicapi.imageapi.IImage;
+import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
 
 final class DigitalClockSession extends BackendWebClientSession<VoidApplicationContext> {
 	
 	private static final int TIME_UPDATE_INTERVAL_IN_MILLISECONDS = 200;
 	
-	private static final Image BACKGROUND_IMAGE =
+	private static final IImage BACKGROUND_IMAGE =
 	Image.fromResource("ch/nolix/nolixdemo/digitalclockapplication/resource/Sonnenberg.jpg");
 	
 	private final Text timeLabel = new Text().setId(ControlIdCatalogue.TIME_LABEL_ID);

@@ -8,8 +8,8 @@ import ch.nolix.system.webgui.control.Text;
 import ch.nolix.system.webgui.dialog.WaitDialogFactory;
 import ch.nolix.system.webgui.itemmenu.DropdownMenu;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
-import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
-import ch.nolix.systemapi.guiapi.imageapi.IImage;
+import ch.nolix.systemapi.graphicapi.imageapi.IImage;
+import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.controlapi.TextRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
