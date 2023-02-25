@@ -10,6 +10,16 @@ extends Application<BackendWebClient<Object>, Object> {
 	public static final String NAME = "Fractal Generator";
 	
 	public FractalGenerator() {
-		super(NAME, FractalGenerationSession.class, VoidApplicationContext.INSTANCE);
+		super(VoidApplicationContext.INSTANCE);
+	}
+	
+	@Override
+	public String getApplicationName() {
+		return NAME;
+	}
+	
+	@Override
+	protected Class<?> getInitialSessionClass() {
+		return FractalGenerationSession.class;
 	}
 }

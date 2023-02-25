@@ -4,13 +4,13 @@ import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.webgui.container.GridContainer;
 import ch.nolix.system.webgui.control.Button;
 import ch.nolix.system.webgui.control.ImageControl;
-import ch.nolix.system.webgui.control.Text;
+import ch.nolix.system.webgui.control.Label;
 import ch.nolix.system.webgui.dialog.WaitDialogFactory;
 import ch.nolix.system.webgui.itemmenu.DropdownMenu;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
-import ch.nolix.systemapi.webguiapi.controlapi.TextRole;
+import ch.nolix.systemapi.webguiapi.controlapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 final class FractalGenerationSession extends BackendWebClientSession<Object> {
@@ -43,7 +43,7 @@ final class FractalGenerationSession extends BackendWebClientSession<Object> {
 	}
 		
 	private IControl<?, ?> createTitleControl() {
-		return new Text().setRole(TextRole.TITLE).setText(getApplicationName());
+		return new Label().setRole(LabelRole.TITLE).setText(getApplicationName());
 	}
 	
 	private IControl<?, ?> createConfigurationControl() {

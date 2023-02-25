@@ -6,7 +6,7 @@ import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.system.webgui.control.Text;
+import ch.nolix.system.webgui.control.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
@@ -19,9 +19,9 @@ final class DigitalClockSession extends BackendWebClientSession<VoidApplicationC
 	private static final IImage BACKGROUND_IMAGE =
 	Image.fromResource("ch/nolix/nolixdemo/digitalclockapplication/resource/Sonnenberg.jpg");
 	
-	private final Text timeLabel = new Text().setId(ControlIdCatalogue.TIME_LABEL_ID);
+	private final Label timeLabel = new Label().setId(ControlIdCatalogue.TIME_LABEL_ID);
 	
-	private final Text dateLabel = new Text().setId(ControlIdCatalogue.DATE_LABEL_ID);
+	private final Label dateLabel = new Label().setId(ControlIdCatalogue.DATE_LABEL_ID);
 	
 	@Override
 	protected void initialize() {

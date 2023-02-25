@@ -1,15 +1,15 @@
 package ch.nolix.nolixdemo.fractalgeneratorapplication;
 
-import ch.nolix.business.bigdecimalmath.ComplexNumber;
-import ch.nolix.business.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
+import ch.nolix.business.math.bigdecimalmath.ComplexNumber;
+import ch.nolix.business.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.template.bigdecimalmath.GlobalSequenceCreator;
 
 public final class FractalBuilder {
 	
-	private final ch.nolix.business.bigdecimalmath.FractalBuilder internalFractalBuilder =
-	new ch.nolix.business.bigdecimalmath.FractalBuilder();
+	private final ch.nolix.business.math.fractal.FractalBuilder internalFractalBuilder =
+	new ch.nolix.business.math.fractal.FractalBuilder();
 	
 	public IImage createFractalImage() {
 		return internalFractalBuilder.build().toImage();

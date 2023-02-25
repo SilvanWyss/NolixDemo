@@ -5,7 +5,7 @@ import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.BackendWebClient;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
-import ch.nolix.system.webgui.control.Text;
+import ch.nolix.system.webgui.control.Label;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class HelloWorldApplicationDemo {
@@ -22,7 +22,17 @@ public final class HelloWorldApplicationDemo {
 		public static final String NAME = "Hello World Demo";
 		
 		public HelloWorldApplication() {
-			super(NAME, HelloWorldSession.class, VoidApplicationContext.INSTANCE);
+			super(VoidApplicationContext.INSTANCE);
+		}
+		
+		@Override
+		public String getApplicationName() {
+			return NAME;
+		}
+		
+		@Override
+		protected Class<?> getInitialSessionClass() {
+			return HelloWorldSession.class;
 		}
 	}
 	
@@ -31,7 +41,7 @@ public final class HelloWorldApplicationDemo {
 		@Override
 		protected void initialize() {
 			getRefGUI().pushLayerWithRootControl(
-				new Text()
+				new Label()
 				.setText("Hello World")
 				.editStyle(s -> s.setTextSizeForState(ControlState.BASE, 50))
 			);

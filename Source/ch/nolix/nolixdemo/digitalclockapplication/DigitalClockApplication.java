@@ -10,6 +10,16 @@ extends Application<BackendWebClient<VoidApplicationContext>, VoidApplicationCon
 	public static final String NAME = "Digital Clock";
 	
 	public DigitalClockApplication() {
-		super(NAME, DigitalClockSession.class, VoidApplicationContext.INSTANCE);
+		super(VoidApplicationContext.INSTANCE);
+	}
+	
+	@Override
+	public String getApplicationName() {
+		return NAME;
+	}
+	
+	@Override
+	protected Class<?> getInitialSessionClass() {
+		return DigitalClockSession.class;
 	}
 }
