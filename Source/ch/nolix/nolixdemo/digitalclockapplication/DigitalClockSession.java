@@ -17,7 +17,7 @@ final class DigitalClockSession extends BackendWebClientSession<VoidApplicationC
 	private static final int TIME_UPDATE_INTERVAL_IN_MILLISECONDS = 200;
 	
 	private static final IImage BACKGROUND_IMAGE =
-	Image.fromResource("ch/nolix/nolixdemo/digitalclockapplication/resource/Sonnenberg.jpg");
+	Image.fromResource("ch/nolix/nolixdemo/digitalclockapplication/resource/sonnenberg.jpg");
 	
 	private final Label timeLabel = new Label().setId(ControlIdCatalogue.TIME_LABEL_ID);
 	
