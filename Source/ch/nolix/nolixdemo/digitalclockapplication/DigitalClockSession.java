@@ -26,7 +26,7 @@ final class DigitalClockSession extends BackendWebClientSession<VoidApplicationC
 	@Override
 	protected void initialize() {
 		
-		getRefGUI()
+		getOriGUI()
 		.setStyle(LookCreator.INSTANCE.createLook())
 		.pushLayer(
 			new Layer()
@@ -44,7 +44,7 @@ final class DigitalClockSession extends BackendWebClientSession<VoidApplicationC
 		
 		GlobalSequencer
 		.asLongAs(this::isOpen)
-		.afterAllMilliseconds(TIME_UPDATE_INTERVAL_IN_MILLISECONDS)
+		.afterEveryMilliseconds(TIME_UPDATE_INTERVAL_IN_MILLISECONDS)
 		.runInBackground(this::updateDateAndTime);
 	}
 	

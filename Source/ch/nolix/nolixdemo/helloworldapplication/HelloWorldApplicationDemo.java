@@ -40,7 +40,7 @@ public final class HelloWorldApplicationDemo {
 		
 		@Override
 		protected void initialize() {
-			getRefGUI().pushLayerWithRootControl(
+			getOriGUI().pushLayerWithRootControl(
 				new Label()
 				.setText("Hello World")
 				.editStyle(s -> s.setTextSizeForState(ControlState.BASE, 50))

@@ -32,7 +32,7 @@ final class FractalGenerationSession extends BackendWebClientSession<Object> {
 		
 	@Override
 	protected void initialize() {
-		getRefGUI().pushLayerWithRootControl(createMainControl());
+		getOriGUI().pushLayerWithRootControl(createMainControl());
 	}
 	
 	private IControl<?, ?> createMainControl() {
@@ -114,7 +114,7 @@ final class FractalGenerationSession extends BackendWebClientSession<Object> {
 	}
 	
 	private void startRegenerateFractalImage() {
-		getRefGUI().pushLayer(
+		getOriGUI().pushLayer(
 			WaitDialogFactory.INSTANCE.createWaitDialogForJobAndTerminalAction(
 				this::regenerateFractalImage,
 				this::updateCounterpart
