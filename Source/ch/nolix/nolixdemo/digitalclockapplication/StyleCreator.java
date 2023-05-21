@@ -4,24 +4,24 @@ import ch.nolix.system.element.style.DeepStyle;
 import ch.nolix.system.element.style.Style;
 import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
 
-final class LookCreator {
+final class StyleCreator {
 	
-	public static final LookCreator INSTANCE = new LookCreator();
+	public static final StyleCreator INSTANCE = new StyleCreator();
 	
-	private LookCreator() {}
+	private StyleCreator() {}
 	
-	public Style createLook() {
+	public Style createStyle() {
 		return
 		new Style()
 		.addConfiguration(
-			createTimeLayerLook(),
-			createMainContainerLook(),
-			createTimeLabelLook(),
-			createDateLabelLook()
+			createTimeLayerStyle(),
+			createMainContainerStyle(),
+			createTimeLabelStyle(),
+			createDateLabelStyle()
 		);
 	}
 	
-	private DeepStyle createTimeLayerLook() {
+	private DeepStyle createTimeLayerStyle() {
 		return
 		new DeepStyle()
 		.setSelectorId(ControlIdCatalogue.TIME_LAYER_ID)
@@ -31,7 +31,7 @@ final class LookCreator {
 		);
 	}
 	
-	private DeepStyle createMainContainerLook() {
+	private DeepStyle createMainContainerStyle() {
 		return
 		new DeepStyle()
 		.addSelectorRole(ContainerRole.MAIN_CONTENT_CONTAINER)
@@ -44,14 +44,14 @@ final class LookCreator {
 		);
 	}
 	
-	private DeepStyle createTimeLabelLook() {
+	private DeepStyle createTimeLabelStyle() {
 		return
 		new DeepStyle()
 		.setSelectorId(ControlIdCatalogue.TIME_LABEL_ID)
 		.addAttachingAttribute("BaseTextSize(100)");
 	}
 	
-	private DeepStyle createDateLabelLook() {
+	private DeepStyle createDateLabelStyle() {
 		return
 		new DeepStyle()
 		.setSelectorId(ControlIdCatalogue.DATE_LABEL_ID)
