@@ -13,7 +13,7 @@ import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
 
 final class DigitalClockSession extends BackendWebClientSession<Object> {
 	
-	private static final int DELAY_TO_START_UPDATE_IN_MILLISECONDS = 200;
+	private static final int DELAY_TO_START_UPDATE_IN_MILLISECONDS = 2000;
 	
 	private static final int TIME_UPDATE_INTERVAL_IN_MILLISECONDS = 500;
 	
@@ -22,9 +22,9 @@ final class DigitalClockSession extends BackendWebClientSession<Object> {
 	
 	private static final StyleCreator STYLE_CREATOR = StyleCreator.INSTANCE;
 	
-	private final Label timeLabel = new Label().setId(ControlIdCatalogue.TIME_LABEL_ID);
+	private final Label timeLabel = new Label().setId(ControlIdCatalogue.TIME_LABEL_ID).setText(getCurrentTimeText());
 	
-	private final Label dateLabel = new Label().setId(ControlIdCatalogue.DATE_LABEL_ID);
+	private final Label dateLabel = new Label().setId(ControlIdCatalogue.DATE_LABEL_ID).setText(getCurrentDateText());
 	
 	private final VerticalStack mainContentVerticalStack =
 	new VerticalStack()
