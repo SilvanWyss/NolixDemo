@@ -6,7 +6,7 @@ import ch.nolix.nolixdemo.fractalgeneratorapplication.FractalGeneratorApplicatio
 import ch.nolix.nolixdemo.helloworldapplication.HelloWorldApplication;
 import ch.nolix.system.application.main.Server;
 
-public final class Launcher {
+final class Launcher {
 	
 	public static void main(String[] args) {
 		
