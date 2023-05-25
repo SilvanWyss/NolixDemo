@@ -4,12 +4,11 @@ import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.BackendWebClient;
 
-public final class FractalGenerator
-extends Application<BackendWebClient<Object>, Object> {
+public final class FractalGeneratorApplication extends Application<BackendWebClient<Object>, Object> {
 	
 	public static final String NAME = "Fractal Generator";
 	
-	public FractalGenerator() {
+	public FractalGeneratorApplication() {
 		super(VoidApplicationContext.INSTANCE);
 	}
 	

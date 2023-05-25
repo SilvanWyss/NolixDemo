@@ -6,7 +6,7 @@ import ch.nolix.system.graphic.color.Color;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.template.bigdecimalmath.GlobalSequenceCreator;
 
-public final class FractalBuilder {
+final class FractalBuilder {
 	
 	private final ch.nolix.business.math.fractal.FractalBuilder internalFractalBuilder =
 	new ch.nolix.business.math.fractal.FractalBuilder();
@@ -77,7 +77,7 @@ public final class FractalBuilder {
 	
 	public FractalBuilder setLargeSize() {
 		
-		internalFractalBuilder.setWidthInPixel(900).setHeightInPixel(900);
+		internalFractalBuilder.setWidthInPixel(800).setHeightInPixel(800);
 		
 		return this;
 	}
@@ -122,14 +122,14 @@ public final class FractalBuilder {
 	
 	public FractalBuilder setSmallSize() {
 		
-		internalFractalBuilder.setWidthInPixel(300).setHeightInPixel(300);
+		internalFractalBuilder.setWidthInPixel(400).setHeightInPixel(400);
 		
 		return this;
 	}
 	
 	public FractalBuilder setVeryLargeSize() {
 		
-		internalFractalBuilder.setWidthInPixel(1200).setHeightInPixel(1200);
+		internalFractalBuilder.setWidthInPixel(1000).setHeightInPixel(1000);
 		
 		return this;
 	}
