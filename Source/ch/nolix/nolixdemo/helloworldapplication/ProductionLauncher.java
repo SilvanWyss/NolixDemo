@@ -2,7 +2,7 @@ package ch.nolix.nolixdemo.helloworldapplication;
 
 import ch.nolix.system.application.main.SecureServer;
 
-public final class ProductionLauncher {
+final class ProductionLauncher {
 	
 	public static void main(String[] args) {
 		

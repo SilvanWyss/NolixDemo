@@ -4,7 +4,7 @@ import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.webgui.control.Label;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-public final class HelloWorldSession extends BackendWebClientSession<Object> {
+final class HelloWorldSession extends BackendWebClientSession<Object> {
 	
 	@Override
 	protected void initialize() {
