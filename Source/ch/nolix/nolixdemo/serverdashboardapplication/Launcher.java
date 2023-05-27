@@ -1,6 +1,7 @@
 package ch.nolix.nolixdemo.serverdashboardapplication;
 
 import ch.nolix.business.serverdashboardapplication.ServerDashboardApplication;
+import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.nolixdemo.digitalclockapplication.DigitalClockApplication;
 import ch.nolix.nolixdemo.fractalgeneratorapplication.FractalGeneratorApplication;
 import ch.nolix.nolixdemo.helloworldapplication.HelloWorldApplication;
@@ -17,6 +18,8 @@ final class Launcher {
 		server.addApplication(new HelloWorldApplication());
 		server.addApplication(new DigitalClockApplication());
 		server.addApplication(new FractalGeneratorApplication());
+		
+		ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 	}
 	
 	private Launcher() {}
