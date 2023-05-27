@@ -12,6 +12,7 @@ import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.controlapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.template.webgui.style.DarkModeStyleCreator;
 
 final class FractalGenerationSession extends BackendWebClientSession<Object> {
 	
@@ -29,19 +30,21 @@ final class FractalGenerationSession extends BackendWebClientSession<Object> {
 	private final FractalBuilder fractalBuilder = new FractalBuilder();
 	
 	private final ImageControl fractalImageControl = new ImageControl().setImage(DEFAULT_FRACTAL_IMAGE);
-		
+	
 	@Override
 	protected void initialize() {
-		getOriGUI().pushLayerWithRootControl(createMainControl());
+		getOriGUI()		
+		.pushLayerWithRootControl(createMainControl())
+		.setStyle(DarkModeStyleCreator.INSTANCE.createDarkModeStyle());
 	}
 	
 	private IControl<?, ?> createMainControl() {
 		return
 		new VerticalStack()
-		.setRole(ContainerRole.OVERALL_CONTAINTER)
+		.setRole(ContainerRole.OVERALL_CONTAINER)
 		.addControl(createTitleControl(), createConfigurationControl(), fractalImageControl);
 	}
-		
+	
 	private IControl<?, ?> createTitleControl() {
 		return new Label().setRole(LabelRole.TITLE).setText(getApplicationName());
 	}
@@ -63,10 +66,10 @@ final class FractalGenerationSession extends BackendWebClientSession<Object> {
 			.addItemWithTextAndSelectAction("p->p^4+z", fractalBuilder::setFunctionSumOfPredecessarPower4AndZ)
 			.selectFirstItem()
 		)
-		.insertTextAtRowAndColumn(1, 3, "Maximal iteration count")
+		.insertTextAtRowAndColumn(1, 5, "Maximal iteration count")
 		.insertControlAtRowAndColumn(
 			1,
-			4,
+			6,
 			createMaxIterationCountDropdownMenu()
 		)
 		.insertTextAtRowAndColumn(2, 1, "Size")
@@ -80,10 +83,10 @@ final class FractalGenerationSession extends BackendWebClientSession<Object> {
 			.addItemWithTextAndSelectAction("Very large", fractalBuilder::setVeryLargeSize)
 			.selectFirstItem()
 		)
-		.insertTextAtRowAndColumn(2, 3, "Coloring")
+		.insertTextAtRowAndColumn(2, 5, "Coloring")
 		.insertControlAtRowAndColumn(
 			2,
-			4,
+			6,
 			new DropdownMenu()
 			.addItemWithTextAndSelectAction("Unique beige", fractalBuilder::setUniqueBeigeColoring)
 			.addItemWithTextAndSelectAction("Blue", fractalBuilder::setBlueColoring)
