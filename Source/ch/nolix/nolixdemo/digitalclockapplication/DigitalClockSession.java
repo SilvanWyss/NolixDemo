@@ -13,8 +13,6 @@ import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
 
 final class DigitalClockSession extends BackendWebClientSession<Object> {
 	
-	private static final int DELAY_TO_START_UPDATE_IN_MILLISECONDS = 2000;
-	
 	private static final int TIME_UPDATE_INTERVAL_IN_MILLISECONDS = 500;
 	
 	private static final IImage BACKGROUND_IMAGE =
@@ -40,7 +38,6 @@ final class DigitalClockSession extends BackendWebClientSession<Object> {
 		final var style = STYLE_CREATOR.createStyle();
 		
 		getOriGUI()
-		.setBackgroundImage(BACKGROUND_IMAGE)
 		.pushLayer(
 			new Layer()
 			.setId(ControlIdCatalogue.TIME_LAYER_ID)
@@ -51,15 +48,18 @@ final class DigitalClockSession extends BackendWebClientSession<Object> {
 		GlobalSequencer.runInBackground(
 			() -> {
 				
-				//We must wait until the client has received the first version of the page.
-				GlobalSequencer.waitForMilliseconds(DELAY_TO_START_UPDATE_IN_MILLISECONDS);
+				//We must wait until the initialization will be finished.
+				GlobalSequencer.waitForMilliseconds(100);
 				
-				GlobalSequencer
-				.asLongAs(this::isOpen)
-				.afterEveryMilliseconds(TIME_UPDATE_INTERVAL_IN_MILLISECONDS)
-				.runInBackground(this::updateDateAndTime);
+				getOriGUI().setBackgroundImage(BACKGROUND_IMAGE);
+				updateCounterpart();
 			}
 		);
+		
+		GlobalSequencer
+		.asLongAs(this::isOpen)
+		.afterEveryMilliseconds(TIME_UPDATE_INTERVAL_IN_MILLISECONDS)
+		.runInBackground(this::updateDateAndTime);
 	}
 	
 	private void updateDateAndTime() {
