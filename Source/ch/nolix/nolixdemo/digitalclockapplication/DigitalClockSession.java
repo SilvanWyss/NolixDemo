@@ -2,7 +2,7 @@ package ch.nolix.nolixdemo.digitalclockapplication;
 
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.system.application.webapplication.BackendWebClientSession;
+import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.system.webgui.control.Label;
@@ -11,7 +11,7 @@ import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
 
-final class DigitalClockSession extends BackendWebClientSession<Object> {
+final class DigitalClockSession extends WebClientSession<Object> {
 	
 	private static final int TIME_UPDATE_INTERVAL_IN_MILLISECONDS = 500;
 	
@@ -57,7 +57,7 @@ final class DigitalClockSession extends BackendWebClientSession<Object> {
 		);
 		
 		GlobalSequencer
-		.asLongAs(this::isOpen)
+		.asLongAs(this::belongsToOpenClient)
 		.afterEveryMilliseconds(TIME_UPDATE_INTERVAL_IN_MILLISECONDS)
 		.runInBackground(this::updateDateAndTime);
 	}

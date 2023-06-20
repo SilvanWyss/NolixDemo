@@ -1,6 +1,6 @@
 package ch.nolix.nolixdemo.fractalgeneratorapplication;
 
-import ch.nolix.system.application.webapplication.BackendWebClientSession;
+import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.container.GridContainer;
 import ch.nolix.system.webgui.control.Button;
 import ch.nolix.system.webgui.control.ImageControl;
@@ -14,7 +14,7 @@ import ch.nolix.systemapi.webguiapi.controlapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.template.webgui.style.DarkModeStyleCreator;
 
-final class FractalGenerationSession extends BackendWebClientSession<Object> {
+final class FractalGenerationSession extends WebClientSession<Object> {
 	
 	private static final IImage DEFAULT_FRACTAL_IMAGE =
 	new FractalBuilder()
@@ -23,6 +23,8 @@ final class FractalGenerationSession extends BackendWebClientSession<Object> {
 	.setSmallSize()
 	.setUniqueBeigeColoring()
 	.createFractalImage();
+	
+	private static final DarkModeStyleCreator DARK_MODE_STYLE_CREATOR = new DarkModeStyleCreator();
 	
 	private final Button generateFractalImageButton =
 	new Button().setText("Generate").setLeftMouseButtonPressAction(this::startRegenerateFractalImage);
@@ -35,7 +37,7 @@ final class FractalGenerationSession extends BackendWebClientSession<Object> {
 	protected void initialize() {
 		getOriGUI()		
 		.pushLayerWithRootControl(createMainControl())
-		.setStyle(DarkModeStyleCreator.INSTANCE.createDarkModeStyle());
+		.setStyle(DARK_MODE_STYLE_CREATOR.createDarkModeStyle());
 	}
 	
 	private IControl<?, ?> createMainControl() {
