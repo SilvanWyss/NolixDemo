@@ -13,7 +13,9 @@ import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
 
 final class DigitalClockSession extends WebClientSession<Object> {
 	
-	private static final int TIME_UPDATE_INTERVAL_IN_MILLISECONDS = 500;
+	private static final int UPDATE_START_DELAY_IN_MILLISECONDS = 1000;
+	
+	private static final int TIME_UPDATE_INTERVAL_IN_MILLISECONDS = 200;
 	
 	private static final IImage BACKGROUND_IMAGE =
 	Image.fromResource("ch/nolix/nolixdemo/digitalclockapplication/resource/sonnenberg.jpg");
@@ -43,23 +45,21 @@ final class DigitalClockSession extends WebClientSession<Object> {
 			.setId(ControlIdCatalogue.TIME_LAYER_ID)
 			.setRootControl(mainContentVerticalStack)
 		)
+		.setBackgroundImage(BACKGROUND_IMAGE)
 		.setStyle(style);
 		
 		GlobalSequencer.runInBackground(
 			() -> {
 				
 				//We must wait until the initialization will be finished.
-				GlobalSequencer.waitForMilliseconds(100);
+				GlobalSequencer.waitForMilliseconds(UPDATE_START_DELAY_IN_MILLISECONDS);
 				
-				getOriGUI().setBackgroundImage(BACKGROUND_IMAGE);
-				updateCounterpart();
+				GlobalSequencer
+				.asLongAs(this::belongsToOpenClient)
+				.afterEveryMilliseconds(TIME_UPDATE_INTERVAL_IN_MILLISECONDS)
+				.runInBackground(this::updateDateAndTime);
 			}
 		);
-		
-		GlobalSequencer
-		.asLongAs(this::belongsToOpenClient)
-		.afterEveryMilliseconds(TIME_UPDATE_INTERVAL_IN_MILLISECONDS)
-		.runInBackground(this::updateDateAndTime);
 	}
 	
 	private void updateDateAndTime() {
