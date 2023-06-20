@@ -137,7 +137,7 @@ final class FractalBuilder {
 	public FractalBuilder setYellowColoring() {
 		
 		internalFractalBuilder.setColorFunction(
-			i -> {
+			(int i) -> {
 				
 				final var colorComponent =
 				Color.MAX_COLOR_COMPONENT * i / internalFractalBuilder.getMaxIterationCount();
