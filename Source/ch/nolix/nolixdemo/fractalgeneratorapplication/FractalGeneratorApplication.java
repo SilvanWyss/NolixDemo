@@ -1,6 +1,5 @@
 package ch.nolix.nolixdemo.fractalgeneratorapplication;
 
-import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.webapplication.WebClient;
 
@@ -9,7 +8,7 @@ public final class FractalGeneratorApplication extends Application<WebClient<Obj
 	public static final String NAME = "Fractal Generator";
 	
 	public FractalGeneratorApplication() {
-		super(new VoidObject());
+		super(new FractalBuilderContext());
 	}
 	
 	@Override
