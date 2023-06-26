@@ -1,6 +1,6 @@
 package ch.nolix.nolixdemo.serverdashboardapplication;
 
-import ch.nolix.business.serverdashboardapplication.ServerDashboardApplication;
+import ch.nolix.business.serverdashboardapplication.main.ServerDashboardApplication;
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.nolixdemo.digitalclockapplication.DigitalClockApplication;
 import ch.nolix.nolixdemo.fractalgeneratorapplication.FractalGeneratorApplication;
@@ -11,9 +11,10 @@ final class Launcher {
 	
 	public static void main(String[] args) {
 		
-		final var server = Server.forDefaultPort();
+		final var server = Server.forHttpPort();
 		
-		server.addDefaultApplication(ServerDashboardApplication.forServer(server));
+		final var serverDashboardApplication = ServerDashboardApplication.forServer(server);
+		server.addDefaultApplication(serverDashboardApplication);
 		
 		server.addApplication(new HelloWorldApplication());
 		server.addApplication(new DigitalClockApplication());

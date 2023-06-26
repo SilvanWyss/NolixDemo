@@ -8,7 +8,7 @@ final class HelloWorldSession extends WebClientSession<Object> {
 	
 	@Override
 	protected void initialize() {
-		getOriGUI().pushLayerWithRootControl(
+		getOriGui().pushLayerWithRootControl(
 			new Label()
 			.setText("Hello World!")
 			.editStyle(s -> s.setTextSizeForState(ControlState.BASE, 50))

@@ -10,6 +10,7 @@ import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
+import ch.nolix.systemapi.webguiapi.linearcontainerapi.IVerticalStack;
 
 final class DigitalClockSession extends WebClientSession<Object> {
 	
@@ -26,7 +27,7 @@ final class DigitalClockSession extends WebClientSession<Object> {
 	
 	private final Label dateLabel = new Label().setId(ControlIdCatalogue.DATE_LABEL_ID).setText(getCurrentDateText());
 	
-	private final VerticalStack mainContentVerticalStack =
+	private final IVerticalStack mainContentVerticalStack =
 	new VerticalStack()
 	.setRole(ContainerRole.MAIN_CONTENT_CONTAINER)
 	.addControl(
@@ -39,7 +40,7 @@ final class DigitalClockSession extends WebClientSession<Object> {
 		
 		final var style = STYLE_CREATOR.createStyle();
 		
-		getOriGUI()
+		getOriGui()
 		.pushLayer(
 			new Layer()
 			.setId(ControlIdCatalogue.TIME_LAYER_ID)

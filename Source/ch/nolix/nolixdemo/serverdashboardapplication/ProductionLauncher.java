@@ -1,6 +1,6 @@
 package ch.nolix.nolixdemo.serverdashboardapplication;
 
-import ch.nolix.business.serverdashboardapplication.ServerDashboardApplication;
+import ch.nolix.business.serverdashboardapplication.main.ServerDashboardApplication;
 import ch.nolix.nolixdemo.digitalclockapplication.DigitalClockApplication;
 import ch.nolix.nolixdemo.fractalgeneratorapplication.FractalGeneratorApplication;
 import ch.nolix.nolixdemo.helloworldapplication.HelloWorldApplication;

@@ -35,7 +35,7 @@ final class FractalGenerationSession extends WebClientSession<Object> {
 	
 	@Override
 	protected void initialize() {
-		getOriGUI()		
+		getOriGui()		
 		.pushLayerWithRootControl(createMainControl())
 		.setStyle(DARK_MODE_STYLE_CREATOR.createDarkModeStyle());
 	}
@@ -119,7 +119,7 @@ final class FractalGenerationSession extends WebClientSession<Object> {
 	}
 	
 	private void startRegenerateFractalImage() {
-		getOriGUI().pushLayer(
+		getOriGui().pushLayer(
 			WaitDialogFactory.INSTANCE.createWaitDialogForJobAndTerminalAction(
 				this::regenerateFractalImage,
 				this::updateCounterpart
