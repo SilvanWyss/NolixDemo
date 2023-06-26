@@ -77,7 +77,7 @@ final class FractalBuilder {
 	
 	public FractalBuilder setLargeSize() {
 		
-		internalFractalBuilder.setWidthInPixel(800).setHeightInPixel(800);
+		internalFractalBuilder.setWidthInPixel(600).setHeightInPixel(600);
 		
 		return this;
 	}
@@ -101,7 +101,7 @@ final class FractalBuilder {
 	
 	public FractalBuilder setMediumSize() {
 		
-		internalFractalBuilder.setWidthInPixel(600).setHeightInPixel(600);
+		internalFractalBuilder.setWidthInPixel(400).setHeightInPixel(400);
 		
 		return this;
 	}
@@ -122,14 +122,14 @@ final class FractalBuilder {
 	
 	public FractalBuilder setSmallSize() {
 		
-		internalFractalBuilder.setWidthInPixel(400).setHeightInPixel(400);
+		internalFractalBuilder.setWidthInPixel(200).setHeightInPixel(200);
 		
 		return this;
 	}
 	
 	public FractalBuilder setVeryLargeSize() {
 		
-		internalFractalBuilder.setWidthInPixel(1000).setHeightInPixel(1000);
+		internalFractalBuilder.setWidthInPixel(800).setHeightInPixel(800);
 		
 		return this;
 	}
