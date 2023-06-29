@@ -14,7 +14,7 @@ import ch.nolix.systemapi.webguiapi.linearcontainerapi.IVerticalStack;
 
 final class DigitalClockSession extends WebClientSession<Object> {
 	
-	private static final int UPDATE_START_DELAY_IN_MILLISECONDS = 1000;
+	private static final int UPDATE_START_DELAY_IN_MILLISECONDS = 200;
 	
 	private static final int TIME_UPDATE_INTERVAL_IN_MILLISECONDS = 200;
 	
