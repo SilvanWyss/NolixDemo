@@ -20,7 +20,7 @@ final class Launcher {
 		server.addApplication(new HelloWorldApplication());
 		server.addApplication(new DigitalClockApplication());
 		server.addApplication(new FractalGeneratorApplication());
-		server.addApplication(PlanningPokerApplication.withInMemoryNodeDatabase());
+		server.addApplication(PlanningPokerApplication.withFileNodeDatabase("planning_poker_database.spec"));
 		
 		ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 	}

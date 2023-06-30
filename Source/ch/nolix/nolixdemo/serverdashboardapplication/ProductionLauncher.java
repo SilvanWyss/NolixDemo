@@ -18,7 +18,7 @@ final class ProductionLauncher {
 		secureServer.addApplication(new HelloWorldApplication());
 		secureServer.addApplication(new DigitalClockApplication());
 		secureServer.addApplication(new FractalGeneratorApplication());
-		secureServer.addApplication(PlanningPokerApplication.withInMemoryNodeDatabase());
+		secureServer.addApplication(PlanningPokerApplication.withFileNodeDatabase("planning_poker_database.spec"));
 	}
 	
 	private ProductionLauncher() {}
