@@ -5,11 +5,12 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.system.webgui.control.Label;
+import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
+import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IVerticalStack;
 
 final class DigitalClockSession extends WebClientSession<Object> {
@@ -23,9 +24,9 @@ final class DigitalClockSession extends WebClientSession<Object> {
 	
 	private static final StyleCreator STYLE_CREATOR = StyleCreator.INSTANCE;
 	
-	private final Label timeLabel = new Label().setId(ControlIdCatalogue.TIME_LABEL_ID).setText(getCurrentTimeText());
+	private final ILabel timeLabel = new Label().setId(ControlIdCatalogue.TIME_LABEL_ID).setText(getCurrentTimeText());
 	
-	private final Label dateLabel = new Label().setId(ControlIdCatalogue.DATE_LABEL_ID).setText(getCurrentDateText());
+	private final ILabel dateLabel = new Label().setId(ControlIdCatalogue.DATE_LABEL_ID).setText(getCurrentDateText());
 	
 	private final IVerticalStack mainContentVerticalStack =
 	new VerticalStack()
@@ -40,7 +41,7 @@ final class DigitalClockSession extends WebClientSession<Object> {
 		
 		final var style = STYLE_CREATOR.createStyle();
 		
-		getOriGui()
+		getStoredGui()
 		.pushLayer(
 			new Layer()
 			.setId(ControlIdCatalogue.TIME_LAYER_ID)
@@ -56,7 +57,7 @@ final class DigitalClockSession extends WebClientSession<Object> {
 				GlobalSequencer.waitForMilliseconds(UPDATE_START_DELAY_IN_MILLISECONDS);
 				
 				GlobalSequencer
-				.asLongAs(this::belongsToOpenClient)
+				.asLongAs(this::isAlive)
 				.afterEveryMilliseconds(TIME_UPDATE_INTERVAL_IN_MILLISECONDS)
 				.runInBackground(this::updateDateAndTime);
 			}

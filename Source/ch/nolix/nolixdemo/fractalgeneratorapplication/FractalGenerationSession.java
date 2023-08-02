@@ -1,18 +1,20 @@
 package ch.nolix.nolixdemo.fractalgeneratorapplication;
 
 import ch.nolix.system.application.webapplication.WebClientSession;
-import ch.nolix.system.webgui.container.GridContainer;
-import ch.nolix.system.webgui.control.Button;
-import ch.nolix.system.webgui.control.ImageControl;
-import ch.nolix.system.webgui.control.Label;
-import ch.nolix.system.webgui.dialog.WaitDialogFactory;
+import ch.nolix.system.webgui.atomiccontrol.Button;
+import ch.nolix.system.webgui.atomiccontrol.ImageControl;
+import ch.nolix.system.webgui.atomiccontrol.Label;
+import ch.nolix.system.webgui.container.Grid;
 import ch.nolix.system.webgui.itemmenu.DropdownMenu;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
-import ch.nolix.systemapi.webguiapi.controlapi.LabelRole;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButton;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IImageControl;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
+import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.template.webgui.style.DarkModeStyleCreator;
+import ch.nolix.template.webgui.dialog.WaitDialogBuilder;
+import ch.nolix.template.webgui.style.StyleCatalogue;
 
 final class FractalGenerationSession extends WebClientSession<Object> {
 	
@@ -24,20 +26,18 @@ final class FractalGenerationSession extends WebClientSession<Object> {
 	.setUniqueBeigeColoring()
 	.createFractalImage();
 	
-	private static final DarkModeStyleCreator DARK_MODE_STYLE_CREATOR = new DarkModeStyleCreator();
-	
-	private final Button generateFractalImageButton =
+	private final IButton generateFractalImageButton =
 	new Button().setText("Generate").setLeftMouseButtonPressAction(this::startRegenerateFractalImage);
 	
 	private final FractalBuilder fractalBuilder = new FractalBuilder();
 	
-	private final ImageControl fractalImageControl = new ImageControl().setImage(DEFAULT_FRACTAL_IMAGE);
+	private final IImageControl fractalImageControl = new ImageControl().setImage(DEFAULT_FRACTAL_IMAGE);
 	
 	@Override
 	protected void initialize() {
-		getOriGui()		
+		getStoredGui()		
 		.pushLayerWithRootControl(createMainControl())
-		.setStyle(DARK_MODE_STYLE_CREATOR.createDarkModeStyle());
+		.setStyle(StyleCatalogue.DARK_MODE_STYLE);
 	}
 	
 	private IControl<?, ?> createMainControl() {
@@ -57,7 +57,7 @@ final class FractalGenerationSession extends WebClientSession<Object> {
 	
 	private IControl<?, ?> createConfigurationWidet() {
 		return
-		new GridContainer()
+		new Grid()
 		.insertTextAtRowAndColumn(1, 1, "Function")
 		.insertControlAtRowAndColumn(
 			1,
@@ -119,11 +119,12 @@ final class FractalGenerationSession extends WebClientSession<Object> {
 	}
 	
 	private void startRegenerateFractalImage() {
-		getOriGui().pushLayer(
-			WaitDialogFactory.INSTANCE.createWaitDialogForJobAndTerminalAction(
-				this::regenerateFractalImage,
-				this::updateCounterpart
-			)
+		getStoredGui()
+		.pushLayer(
+			new WaitDialogBuilder()
+			.setJob(this::regenerateFractalImage)
+			.setTerminalAction(this::updateCounterpart)
+			.build()
 		);
 	}
 	

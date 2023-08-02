@@ -1,8 +1,10 @@
 package ch.nolix.nolixdemo.digitalclockapplication;
 
-import ch.nolix.system.element.style.DeepStyle;
+import ch.nolix.system.element.style.DeepSelectingStyle;
 import ch.nolix.system.element.style.Style;
-import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
+import ch.nolix.system.element.stylebuilder.DeepSelectingStyleBuilder;
+import ch.nolix.system.element.stylebuilder.StyleBuilder;
+import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 
 final class StyleCreator {
 	
@@ -12,28 +14,30 @@ final class StyleCreator {
 	
 	public Style createStyle() {
 		return
-		new Style()
-		.addConfiguration(
+		new StyleBuilder()
+		.addSubStyle(
 			createTimeLayerStyle(),
 			createMainContainerStyle(),
 			createTimeLabelStyle(),
 			createDateLabelStyle()
-		);
+		)
+		.build();
 	}
 	
-	private DeepStyle createTimeLayerStyle() {
+	private DeepSelectingStyle createTimeLayerStyle() {
 		return
-		new DeepStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorId(ControlIdCatalogue.TIME_LAYER_ID)
 		.addAttachingAttribute(
 			"Opacity(90%)",
-			"ContentPosition(BOTTOM)"
-		);
+			"ContentAlignment(BOTTOM)"
+		)
+		.build();
 	}
 	
-	private DeepStyle createMainContainerStyle() {
+	private DeepSelectingStyle createMainContainerStyle() {
 		return
-		new DeepStyle()
+		new DeepSelectingStyleBuilder()
 		.addSelectorRole(ContainerRole.MAIN_CONTENT_CONTAINER)
 		.addAttachingAttribute(
 			"BaseWidth(100%)",
@@ -41,20 +45,23 @@ final class StyleCreator {
 			"BasePadding(50)",
 			"BaseTextSize(200)",
 			"BaseTextColor(White)"
-		);
+		)
+		.build();
 	}
 	
-	private DeepStyle createTimeLabelStyle() {
+	private DeepSelectingStyle createTimeLabelStyle() {
 		return
-		new DeepStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorId(ControlIdCatalogue.TIME_LABEL_ID)
-		.addAttachingAttribute("BaseTextSize(100)");
+		.addAttachingAttribute("BaseTextSize(100)")
+		.build();
 	}
 	
-	private DeepStyle createDateLabelStyle() {
+	private DeepSelectingStyle createDateLabelStyle() {
 		return
-		new DeepStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorId(ControlIdCatalogue.DATE_LABEL_ID)
-		.addAttachingAttribute("BaseTextSize(50)");
+		.addAttachingAttribute("BaseTextSize(50)")
+		.build();
 	}
 }
