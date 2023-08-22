@@ -71,7 +71,7 @@ final class DigitalClockSession extends WebClientSession<Object> {
 		
 		restrictNextCounterpartUpdateToControl(mainContentVerticalStack);
 		
-		updateCounterpart();
+		refresh();
 	}
 	
 	private String getCurrentTimeText() {

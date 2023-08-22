@@ -123,7 +123,7 @@ final class FractalGenerationSession extends WebClientSession<Object> {
 		.pushLayer(
 			new WaitDialogBuilder()
 			.setJob(this::regenerateFractalImage)
-			.setTerminalAction(this::updateCounterpart)
+			.setTerminalAction(this::refresh)
 			.build()
 		);
 	}
