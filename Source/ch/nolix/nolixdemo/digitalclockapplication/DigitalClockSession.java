@@ -69,9 +69,7 @@ final class DigitalClockSession extends WebClientSession<Object> {
 		timeLabel.setText(getCurrentTimeText());
 		dateLabel.setText(getCurrentDateText());
 		
-		restrictNextCounterpartUpdateToControl(mainContentVerticalStack);
-		
-		refresh();
+		refreshControl(mainContentVerticalStack);
 	}
 	
 	private String getCurrentTimeText() {

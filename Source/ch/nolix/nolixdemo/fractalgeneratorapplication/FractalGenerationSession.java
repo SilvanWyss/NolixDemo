@@ -37,7 +37,7 @@ final class FractalGenerationSession extends WebClientSession<Object> {
 	protected void initialize() {
 		getStoredGui()		
 		.pushLayerWithRootControl(createMainControl())
-		.setStyle(StyleCatalogue.DARK_MODE_STYLE);
+		.setStyle(StyleCatalogue.DARK_STYLE);
 	}
 	
 	private IControl<?, ?> createMainControl() {
