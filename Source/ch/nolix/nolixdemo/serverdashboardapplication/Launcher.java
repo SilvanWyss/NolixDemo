@@ -9,21 +9,22 @@ import ch.nolix.system.application.main.Server;
 import ch.nolix.tech.serverdashboardapplication.main.ServerDashboardApplication;
 
 final class Launcher {
-	
-	public static void main(String[] args) {
-		
-		final var server = Server.forHttpPort();
-		
-		final var serverDashboardApplication = ServerDashboardApplication.forServer(server);
-		server.addDefaultApplication(serverDashboardApplication);
-		
-		server.addApplication(new HelloWorldApplication());
-		server.addApplication(new DigitalClockApplication());
-		server.addApplication(new FractalGeneratorApplication());
-		server.addApplication(PlanningPokerApplication.withFileNodeDatabase("planning_poker_database.spec"));
-		
-		ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
-	}
-	
-	private Launcher() {}
+
+  public static void main(String[] args) {
+
+    final var server = Server.forHttpPort();
+
+    final var serverDashboardApplication = ServerDashboardApplication.forServer(server);
+    server.addDefaultApplication(serverDashboardApplication);
+
+    server.addApplication(new HelloWorldApplication());
+    server.addApplication(new DigitalClockApplication());
+    server.addApplication(new FractalGeneratorApplication());
+    server.addApplication(PlanningPokerApplication.withFileNodeDatabase("planning_poker_database.spec"));
+
+    ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
+  }
+
+  private Launcher() {
+  }
 }
