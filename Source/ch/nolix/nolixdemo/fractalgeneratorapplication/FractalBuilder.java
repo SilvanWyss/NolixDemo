@@ -8,7 +8,8 @@ import ch.nolix.template.math.sequence.GlobalSequenceCreator;
 
 final class FractalBuilder {
 
-  private final ch.nolix.tech.math.fractal.FractalBuilder internalFractalBuilder = new ch.nolix.tech.math.fractal.FractalBuilder();
+  private final ch.nolix.tech.math.fractal.FractalBuilder internalFractalBuilder = //
+  new ch.nolix.tech.math.fractal.FractalBuilder();
 
   public IImage createFractalImage() {
     return internalFractalBuilder.build().toImage();
