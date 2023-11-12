@@ -9,6 +9,9 @@ import ch.nolix.tech.serverdashboardapplication.main.ServerDashboardApplication;
 
 final class Launcher {
 
+  private Launcher() {
+  }
+
   public static void main(String[] args) {
 
     final var server = Server.forHttpPort();
@@ -21,8 +24,5 @@ final class Launcher {
     server.addApplication(PlanningPokerApplication.withFileNodeDatabase("planning_poker_database.spec"));
 
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
-  }
-
-  private Launcher() {
   }
 }

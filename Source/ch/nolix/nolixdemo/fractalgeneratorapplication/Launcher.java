@@ -6,6 +6,9 @@ import ch.nolix.system.application.main.Server;
 
 final class Launcher {
 
+  private Launcher() {
+  }
+
   public static void main(String[] args) {
 
     final var server = Server.forHttpPort();
@@ -19,8 +22,5 @@ final class Launcher {
       .andThen()
       .asSoonAsNoMore(server::hasClientConnected)
       .runInBackground(server::close);
-  }
-
-  private Launcher() {
   }
 }

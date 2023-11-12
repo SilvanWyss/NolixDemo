@@ -8,6 +8,9 @@ import ch.nolix.tech.serverdashboardapplication.main.ServerDashboardApplication;
 
 final class ProductionLauncher {
 
+  private ProductionLauncher() {
+  }
+
   public static void main(String[] args) {
 
     final var secureServer = SecureServer.forHttpsPortAndDomainAndSSLCertificateFromNolixConfiguration();
@@ -17,8 +20,5 @@ final class ProductionLauncher {
     secureServer.addApplication(new DigitalClockApplication());
     secureServer.addApplication(new FractalGeneratorApplication());
     secureServer.addApplication(PlanningPokerApplication.withFileNodeDatabase("planning_poker_database.spec"));
-  }
-
-  private ProductionLauncher() {
   }
 }
