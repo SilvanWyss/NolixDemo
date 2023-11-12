@@ -2,7 +2,6 @@ package ch.nolix.nolixdemo.serverdashboardapplication;
 
 import ch.nolix.nolixdemo.digitalclockapplication.DigitalClockApplication;
 import ch.nolix.nolixdemo.fractalgeneratorapplication.FractalGeneratorApplication;
-import ch.nolix.nolixdemo.helloworldapplication.HelloWorldApplication;
 import ch.nolix.planningpoker.webapplication.main.PlanningPokerApplication;
 import ch.nolix.system.application.main.SecureServer;
 import ch.nolix.tech.serverdashboardapplication.main.ServerDashboardApplication;
@@ -15,7 +14,6 @@ final class ProductionLauncher {
 
     secureServer.addDefaultApplication(ServerDashboardApplication.forServer(secureServer));
 
-    secureServer.addApplication(new HelloWorldApplication());
     secureServer.addApplication(new DigitalClockApplication());
     secureServer.addApplication(new FractalGeneratorApplication());
     secureServer.addApplication(PlanningPokerApplication.withFileNodeDatabase("planning_poker_database.spec"));
