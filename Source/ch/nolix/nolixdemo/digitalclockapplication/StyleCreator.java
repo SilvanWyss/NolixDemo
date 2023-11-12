@@ -8,11 +8,6 @@ import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 
 final class StyleCreator {
 
-  public static final StyleCreator INSTANCE = new StyleCreator();
-
-  private StyleCreator() {
-  }
-
   public Style createStyle() {
     return new StyleBuilder()
       .addSubStyle(

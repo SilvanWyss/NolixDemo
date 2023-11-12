@@ -22,7 +22,7 @@ final class DigitalClockSession extends WebClientSession<Object> {
   private static final IImage BACKGROUND_IMAGE = Image
     .fromResource("ch/nolix/nolixdemo/digitalclockapplication/resource/sonnenberg.jpg");
 
-  private static final StyleCreator STYLE_CREATOR = StyleCreator.INSTANCE;
+  private static final StyleCreator STYLE_CREATOR = new StyleCreator();
 
   private final ILabel timeLabel = new Label().setId(ControlIdCatalogue.TIME_LABEL_ID).setText(getCurrentTimeText());
 
