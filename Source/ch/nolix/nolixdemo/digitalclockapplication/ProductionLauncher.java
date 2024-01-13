@@ -1,6 +1,6 @@
 package ch.nolix.nolixdemo.digitalclockapplication;
 
-import ch.nolix.system.application.main.SecureServer;
+import ch.nolix.system.application.main.SslServer;
 
 final class ProductionLauncher {
 
@@ -9,8 +9,8 @@ final class ProductionLauncher {
 
   public static void main(String[] args) {
 
-    final var secureServer = SecureServer.forHttpsPortAndDomainAndSSLCertificateFromNolixConfiguration();
+    final var sslServer = SslServer.forHttpsPortAndDomainAndSSLCertificateFromNolixConfiguration();
 
-    secureServer.addDefaultApplication(new DigitalClockApplication());
+    sslServer.addDefaultApplication(new DigitalClockApplication());
   }
 }
