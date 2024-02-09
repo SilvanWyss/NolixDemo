@@ -7,9 +7,9 @@ import ch.nolix.planningpoker.webapplication.main.PlanningPokerApplication;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.tech.serverdashboardapplication.main.ServerDashboardApplication;
 
-final class Launcher {
+final class TestLauncher {
 
-  private Launcher() {
+  private TestLauncher() {
   }
 
   public static void main(String[] args) {
