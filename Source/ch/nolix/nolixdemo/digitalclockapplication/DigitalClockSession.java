@@ -19,8 +19,7 @@ final class DigitalClockSession extends WebClientSession<Object> {
 
   private static final int TIME_UPDATE_INTERVAL_IN_MILLISECONDS = 200;
 
-  private static final IImage BACKGROUND_IMAGE = Image
-    .fromResource("ch/nolix/nolixdemo/digitalclockapplication/resource/sonnenberg.jpg");
+  private static final IImage BACKGROUND_IMAGE = Image.fromResource("image/sonnenberg.jpg");
 
   private static final StyleCreator STYLE_CREATOR = new StyleCreator();
 

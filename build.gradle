@@ -24,5 +24,15 @@ dependencies {
 }
 
 sourceSets {
-  main.java.srcDirs = ['Source']
+
+  main {
+
+    java {
+      srcDirs = ['Source']
+    }
+
+    resources {
+      srcDirs = ['Resource']
+    }
+  }
 }
