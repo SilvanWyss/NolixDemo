@@ -2,54 +2,49 @@ package ch.nolix.nolixdemo.digitalclockapplication;
 
 import ch.nolix.system.element.style.DeepSelectingStyle;
 import ch.nolix.system.element.style.Style;
-import ch.nolix.system.element.stylebuilder.DeepSelectingStyleBuilder;
-import ch.nolix.system.element.stylebuilder.StyleBuilder;
+import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
+import ch.nolix.systemapi.elementapi.styleapi.IStyle;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 
 final class StyleCreator {
 
-  public Style createStyle() {
-    return new StyleBuilder()
-      .addSubStyle(
+  public IStyle createStyle() {
+    return new Style()
+      .withSubStyle(
         createTimeLayerStyle(),
         createMainContainerStyle(),
         createTimeLabelStyle(),
-        createDateLabelStyle())
-      .build();
+        createDateLabelStyle());
   }
 
-  private DeepSelectingStyle createTimeLayerStyle() {
-    return new DeepSelectingStyleBuilder()
-      .setSelectorId(ControlIdCatalogue.TIME_LAYER_ID)
-      .addAttachingAttribute(
+  private ISelectingStyleWithSelectors createTimeLayerStyle() {
+    return new DeepSelectingStyle()
+      .withSelectorId(ControlIdCatalogue.TIME_LAYER_ID)
+      .withAttachingAttribute(
         "Opacity(90%)",
-        "ContentAlignment(BOTTOM)")
-      .build();
+        "ContentAlignment(BOTTOM)");
   }
 
-  private DeepSelectingStyle createMainContainerStyle() {
-    return new DeepSelectingStyleBuilder()
-      .addSelectorRole(ContainerRole.MAIN_CONTENT_CONTAINER)
-      .addAttachingAttribute(
+  private ISelectingStyleWithSelectors createMainContainerStyle() {
+    return new DeepSelectingStyle()
+      .withSelectorRole(ContainerRole.MAIN_CONTENT_CONTAINER)
+      .withAttachingAttribute(
         "BaseWidth(100%)",
         "BaseBackground(Color(Black))",
         "BasePadding(50)",
         "BaseTextSize(200)",
-        "BaseTextColor(White)")
-      .build();
+        "BaseTextColor(White)");
   }
 
-  private DeepSelectingStyle createTimeLabelStyle() {
-    return new DeepSelectingStyleBuilder()
-      .setSelectorId(ControlIdCatalogue.TIME_LABEL_ID)
-      .addAttachingAttribute("BaseTextSize(100)")
-      .build();
+  private ISelectingStyleWithSelectors createTimeLabelStyle() {
+    return new DeepSelectingStyle()
+      .withSelectorId(ControlIdCatalogue.TIME_LABEL_ID)
+      .withAttachingAttribute("BaseTextSize(100)");
   }
 
-  private DeepSelectingStyle createDateLabelStyle() {
-    return new DeepSelectingStyleBuilder()
-      .setSelectorId(ControlIdCatalogue.DATE_LABEL_ID)
-      .addAttachingAttribute("BaseTextSize(50)")
-      .build();
+  private ISelectingStyleWithSelectors createDateLabelStyle() {
+    return new DeepSelectingStyle()
+      .withSelectorId(ControlIdCatalogue.DATE_LABEL_ID)
+      .withAttachingAttribute("BaseTextSize(50)");
   }
 }
