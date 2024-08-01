@@ -1,7 +1,8 @@
 package ch.nolix.nolixdemo.digitalclockapplication;
 
-import ch.nolix.core.commontypetool.GlobalStringTool;
+import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.time.moment.Time;
@@ -20,6 +21,8 @@ final class DigitalClockSession extends WebClientSession<Object> {
   private static final int TIME_UPDATE_INTERVAL_IN_MILLISECONDS = 200;
 
   private static final IImage BACKGROUND_IMAGE = Image.fromResource("image/sonnenberg.jpg");
+
+  private static final IStringTool STRING_TOOL = new StringTool();
 
   private static final StyleCreator STYLE_CREATOR = new StyleCreator();
 
@@ -86,7 +89,7 @@ final class DigitalClockSession extends WebClientSession<Object> {
   private String getDateAsText(final Time time) {
     return String.format(
       "%s %02d.%02d.%04d",
-      GlobalStringTool.toPascalCase(time.getWeekday().toString()),
+      STRING_TOOL.toPascalCase(time.getWeekday().toString()),
       time.getDayOfMonth(),
       time.getMonthOfYearAsInt(),
       time.getYearAsInt());
