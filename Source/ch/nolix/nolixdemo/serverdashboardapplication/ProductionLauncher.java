@@ -1,10 +1,10 @@
 package ch.nolix.nolixdemo.serverdashboardapplication;
 
+import ch.nolix.application.serverdashboard.frontend.main.ServerDashboardApplication;
 import ch.nolix.nolixdemo.digitalclockapplication.DigitalClockApplication;
 import ch.nolix.nolixdemo.fractalgeneratorapplication.FractalGeneratorApplication;
 import ch.nolix.planningpoker.webapplication.main.PlanningPokerApplication;
 import ch.nolix.system.application.main.SslServer;
-import ch.nolix.tech.serverdashboardapplication.main.ServerDashboardApplication;
 
 final class ProductionLauncher {
 

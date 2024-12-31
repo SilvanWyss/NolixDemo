@@ -1,16 +1,16 @@
 package ch.nolix.nolixdemo.fractalgeneratorapplication;
 
 import ch.nolix.system.application.webapplication.WebClientSession;
-import ch.nolix.system.webgui.atomiccontrol.Button;
-import ch.nolix.system.webgui.atomiccontrol.ImageControl;
-import ch.nolix.system.webgui.atomiccontrol.Label;
+import ch.nolix.system.webgui.atomiccontrol.button.Button;
+import ch.nolix.system.webgui.atomiccontrol.imagecontrol.ImageControl;
+import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.system.webgui.container.Grid;
 import ch.nolix.system.webgui.itemmenu.DropdownMenu;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButton;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IImageControl;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.buttonapi.IButton;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.imagecontrolapi.IImageControl;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.labelapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.template.webgui.dialog.WaitDialogBuilder;

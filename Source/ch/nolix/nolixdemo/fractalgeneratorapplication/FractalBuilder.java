@@ -1,6 +1,7 @@
 package ch.nolix.nolixdemo.fractalgeneratorapplication;
 
 import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.color.X11ColorCatalogue;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.tech.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
@@ -17,7 +18,7 @@ final class FractalBuilder {
 
   public FractalBuilder setUniqueBeigeColoring() {
 
-    internalFractalBuilder.setColorFunction(i -> Color.BEIGE);
+    internalFractalBuilder.setColorFunction(i -> X11ColorCatalogue.BEIGE);
 
     return this;
   }

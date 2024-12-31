@@ -6,11 +6,11 @@ import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.system.webgui.atomiccontrol.Label;
+import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.labelapi.ILabel;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IVerticalStack;
 
@@ -92,6 +92,6 @@ final class DigitalClockSession extends WebClientSession<Object> {
       STRING_TOOL.toPascalCase(time.getWeekday().toString()),
       time.getDayOfMonth(),
       time.getMonthOfYearAsInt(),
-      time.getYearAsInt());
+      time.getYear());
   }
 }
