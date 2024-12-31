@@ -17,8 +17,8 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.microsoft.sqlserver:mssql-jdbc:12.6.1.jre11'
-  implementation 'io.netty:netty-all:4.1.90.Final'
+  implementation 'com.microsoft.sqlserver:mssql-jdbc:12.8.1.jre11'
+  implementation 'io.netty:netty-all:4.1.115.Final'
   implementation name: 'nolix'
   implementation name: 'planning_poker'
 }
