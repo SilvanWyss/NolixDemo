@@ -14,7 +14,7 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.labelapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.template.webgui.dialog.WaitDialogBuilder;
-import ch.nolix.template.webgui.style.StyleCatalogue;
+import ch.nolix.template.webgui.style.StyleCatalog;
 
 final class FractalGenerationSession extends WebClientSession<Object> {
 
@@ -36,7 +36,7 @@ final class FractalGenerationSession extends WebClientSession<Object> {
   protected void initialize() {
     getStoredGui()
       .pushLayerWithRootControl(createMainControl())
-      .setStyle(StyleCatalogue.DARK_STYLE);
+      .setStyle(StyleCatalog.DARK_STYLE);
   }
 
   private IControl<?, ?> createMainControl() {
