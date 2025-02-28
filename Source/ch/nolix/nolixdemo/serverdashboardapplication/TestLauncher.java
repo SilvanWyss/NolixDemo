@@ -4,7 +4,7 @@ import ch.nolix.application.serverdashboard.frontend.main.ServerDashboardApplica
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.nolixdemo.digitalclockapplication.DigitalClockApplication;
 import ch.nolix.nolixdemo.fractalgeneratorapplication.FractalGeneratorApplication;
-import ch.nolix.planningpoker.webapplication.main.PlanningPokerApplication;
+import ch.nolix.planningpoker.frontend.main.PlanningPokerApplication;
 import ch.nolix.system.application.main.Server;
 
 final class TestLauncher {

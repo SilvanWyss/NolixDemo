@@ -1,7 +1,7 @@
 package ch.nolix.nolixdemo.digitalclockapplication;
 
 import ch.nolix.core.environment.localcomputer.ShellProvider;
-import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.core.programcontrol.flowcontrol.GlobalFlowController;
 import ch.nolix.system.application.main.Server;
 
 final class Launcher {
@@ -17,7 +17,7 @@ final class Launcher {
 
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 
-    GlobalSequencer
+    GlobalFlowController
       .waitForSeconds(2)
       .andThen()
       .asSoonAsNoMore(server::hasClientConnected)

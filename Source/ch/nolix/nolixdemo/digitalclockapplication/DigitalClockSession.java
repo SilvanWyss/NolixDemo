@@ -1,7 +1,7 @@
 package ch.nolix.nolixdemo.digitalclockapplication;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
-import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.core.programcontrol.flowcontrol.GlobalFlowController;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.graphic.image.Image;
@@ -49,13 +49,13 @@ final class DigitalClockSession extends WebClientSession<Object> {
       .setBackgroundImage(BACKGROUND_IMAGE)
       .setStyle(style);
 
-    GlobalSequencer.runInBackground(
+    GlobalFlowController.runInBackground(
       () -> {
 
         //We must wait until the initialization will be finished.
-        GlobalSequencer.waitForMilliseconds(UPDATE_START_DELAY_IN_MILLISECONDS);
+        GlobalFlowController.waitForMilliseconds(UPDATE_START_DELAY_IN_MILLISECONDS);
 
-        GlobalSequencer
+        GlobalFlowController
           .asLongAs(this::isAlive)
           .afterEveryMilliseconds(TIME_UPDATE_INTERVAL_IN_MILLISECONDS)
           .runInBackground(this::updateDateAndTime);

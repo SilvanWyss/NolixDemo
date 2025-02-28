@@ -5,7 +5,7 @@ import ch.nolix.system.webgui.atomiccontrol.button.Button;
 import ch.nolix.system.webgui.atomiccontrol.imagecontrol.ImageControl;
 import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.system.webgui.container.Grid;
-import ch.nolix.system.webgui.itemmenu.DropdownMenu;
+import ch.nolix.system.webgui.itemmenu.dropdownmenu.DropdownMenu;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.buttonapi.IButton;
