@@ -5,7 +5,7 @@ import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.tech.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
-import ch.nolix.template.math.sequence.GlobalSequenceFactory;
+import ch.nolix.template.math.sequence.SequenceFactory;
 
 final class FractalBuilder {
 
@@ -79,7 +79,7 @@ final class FractalBuilder {
     internalFractalBuilder
       .setRealComponentInterval(-2.0, 1.0)
       .setImaginaryComponentInterval(-1.5, 1.5)
-      .setSequenceCreator(GlobalSequenceFactory::createMandelbrotSequenceForIncrement);
+      .setSequenceCreator(SequenceFactory::createMandelbrotSequenceForIncrement);
 
     return this;
   }
